@@ -2,10 +2,13 @@
   "compilerOptions": {
     "sourceMap": true,
     "outDir": "dist",
+    "rootDir": "src",
     "strict": true,
     "lib": ["esnext"],
     "esModuleInterop": true,
+    "declaration": true,
     "typeRoots": ["./node_modules/@types", "./src/types/express"],
   },
-  "files": ["./src/types/express/index.d.ts"]
+  "files": ["./src/types/express/index.d.ts"],
+  "include": ["src/**/*.ts"]
 }

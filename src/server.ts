@@ -2,7 +2,7 @@ import express, { application, ErrorRequestHandler } from "express";
 import router from "./router";
 import morgan from "morgan";
 import cors from "cors";
-import { protect } from "./modules/auth";
+import { authHandler } from "./modules/auth";
 import { createNewUser, signin } from "./handlers/user";
 
 const app = express();
@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
   res.json({ message: "hello there" });
 });
 
-app.use("/api", protect, router);
+app.use("/api", authHandler, router);
 
 app.post("/signin", signin);
 app.post("/signup", createNewUser);
